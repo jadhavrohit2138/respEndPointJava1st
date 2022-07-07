@@ -1,29 +1,35 @@
 package com.SecondProj.SecondProj.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "emp")
 public class Employee {
-    @Id
-    @Column(name = "emp_id")
-    private int emp_id;
-    @Column(name = "name")
 
-    private String name;
-    @Column(name = "loc")
-
-    private String loc;
-
-    public int getEmp_id() {
-        return emp_id;
+    public Employee(int empId, String name, int compId) {
+        this.empId = empId;
+        this.name = name;
+        this.compId = compId;
     }
 
-    public void setEmp_id(int emp_id) {
-        this.emp_id = emp_id;
+    public Employee() {
+        super();
+    }
+
+    @Id
+    @Column(name = "empId")
+    private int empId;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "compId")
+    private int compId;
+
+    public int getEmp_id() {
+        return empId;
+    }
+
+    public void setEmp_id(int empId) {
+        this.empId = empId;
     }
 
     public String getName() {
@@ -34,11 +40,11 @@ public class Employee {
         this.name = name;
     }
 
-    public String getLoc() {
-        return loc;
+    public int getcomId() {
+        return compId;
     }
 
-    public void setLoc(String loc) {
-        this.loc = loc;
+    public void setcomId(int compId) {
+        this.compId = compId;
     }
 }
