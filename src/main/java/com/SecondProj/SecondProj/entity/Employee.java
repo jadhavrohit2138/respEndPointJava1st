@@ -1,50 +1,28 @@
 package com.SecondProj.SecondProj.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
-@Table(name = "emp")
-public class Employee {
-
-    public Employee(int empId, String name, int compId) {
-        this.empId = empId;
-        this.name = name;
-        this.compId = compId;
-    }
-
-    public Employee() {
-        super();
-    }
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="emp")
+public class Employee{
 
     @Id
-    @Column(name = "empId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "emp_id")
     private int empId;
+
     @Column(name = "name")
     private String name;
-    @Column(name = "compId")
-    private int compId;
 
-    public int getEmp_id() {
-        return empId;
-    }
-
-    public void setEmp_id(int empId) {
-        this.empId = empId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getcomId() {
-        return compId;
-    }
-
-    public void setcomId(int compId) {
-        this.compId = compId;
-    }
+    @Column(name = "loc")
+    private String loc;
 }
